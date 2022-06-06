@@ -3,7 +3,7 @@
 
 
 
-![Image text] (https://sm-services.es/wp-content/uploads/2021/02/MEAN-Stack.jpg)
+[![MEAN-Stack.jpg](https://i.postimg.cc/PJz5ynNg/MEAN-Stack.jpg)](https://postimg.cc/1VXSRTGB)
 
 In this repository, we will upload the projects that we will see in this course,
 and we will learn how to manage this framework
