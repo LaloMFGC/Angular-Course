@@ -1,0 +1,14 @@
+<div class="input-group mb-3">
+    <input  type="text" 
+            class="form-control" 
+            placeholder="Type the name of your pokemon" 
+            aria-describedby="button-addon2" 
+            (keyup.enter)="busquedakeyup()"
+            #txtbuscar 
+            [(ngModel)]="imgtext"
+            
+            >
+
+    <button class="btn btn-outline-danger" type="button" id="button-addon2" (click)="busquedangmodel()"> Buscar </button>
+
+</div>
