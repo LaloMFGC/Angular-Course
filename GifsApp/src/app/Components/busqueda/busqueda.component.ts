@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { GifsService } from '../gifs.service';
+import { GifsService } from '../services/gifs.service';
 
 @Component({
   selector: 'app-busqueda',
@@ -19,21 +19,14 @@ export class BusquedaComponent implements OnInit {
 
 
   busquedakeyup(){
-    this.gifservice.searchgifs(this.txtbuscar.nativeElement.value);
+    this.gifservice.searchtext(this.txtbuscar.nativeElement.value);
     this.txtbuscar.nativeElement.value = '';
   }
 
 
   busquedangmodel(){
-    this.gifservice.searchgifs(this.imgtext);
+    this.gifservice.searchtext(this.imgtext);
     this.imgtext = '';
   }
-
-
-  // 
-  // busquedangmodel(){
-  //   this.gifservice.searchgifs(this.txtbuscar.nativeElement.value);
-  //   this.txtbuscar.nativeElement.value = '';
-  // }
 
 }

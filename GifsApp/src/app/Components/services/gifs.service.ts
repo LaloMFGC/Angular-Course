@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { PokemonData, Sprites } from './interfaces/pokemon.interface';
-
-
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { PokemonData } from '../interfaces/pokemon.interface';
+import { Observable } from 'rxjs/internal/Observable';
 
 
 
@@ -12,21 +11,20 @@ import { PokemonData, Sprites } from './interfaces/pokemon.interface';
 
 export class GifsService {
 
-  private apikey = 'https://pokeapi.co/api/v2/pokemon/'
+  private apikey = 'https://pokeapi.co/api/v2'
   private _historial: string[] = [];
-  pokemon : PokemonData[] = [];
+  public pokemon = {} as PokemonData;
+
+  
 
   constructor(private http: HttpClient) { }
 
-  
   get historial(){
     return [...this._historial];
   }
 
 
- 
-
-  searchgifs( data: string){
+  searchtext( data: string){
 
     data = data.trim().toLowerCase();
 
@@ -34,14 +32,38 @@ export class GifsService {
       this._historial.unshift(data);
     }
 
-
-    this.http.get<PokemonData>(this.apikey + data ).subscribe( (resp:PokemonData) => {
-
+    this.http.get<PokemonData>(`${this.apikey}/pokemon/${data}`).subscribe( (resp) =>{
+    
+      
       this.pokemon = resp;
 
     })
-    
+
+
   }
+
+
+
+
+
+
+  // searchtext( data: string){
+
+  //   data = data.trim().toLowerCase();
+
+  //   if(!this._historial.includes(data)){
+  //     this._historial.unshift(data);
+  //   }
+
+  //   this.http.get(this.apikey+data).subscribe( (resp:any) =>{
+    
+  //     // this.pokemoninfo[0] = resp;
+  //     this.resultados = resp;
+
+  //   })
+
+
+  // }
 
   // searchgifs( data: string){
 
